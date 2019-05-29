@@ -5,7 +5,7 @@ $(document).on('click','#cadastro',function(){
     "ano": $("#ano").val(),
     "cor": $("#cor").val(),
     "valor": $("#valor").val(),
-  }
+  };
 
   $.ajax({
     type:"post",
@@ -49,7 +49,7 @@ function preencher (){
       navigator.notification.alert("erro: "+data);
     }
   });
-}
+};
 
 $(document).on("change","#lstCarros",function(){
   var codigo = $("option:selected",("#lstCarros")).val();
@@ -66,5 +66,20 @@ $(document).on("change","#lstCarros",function(){
     error:function(data){
       navigator.notification.alert(data);
     }
-  })
-})
+  });
+});
+
+$(document).on("click","#deletar",function(){
+  $.ajax({
+    type:"get",
+    url:" https://includee-darknesshean.c9users.io/delet.php",
+    data:"id="+$("#cod").val(),
+    success:function(data){
+      navigator.notification.alert(data);
+      location.reload();
+    },
+    error:function(data){
+      navigator.notification.alert(data);
+    }
+  });
+});
