@@ -56,7 +56,7 @@ $(document).on("change","#lstCarros",function(){
   $.ajax({
     type:"get",
     url:"https://includee-darknesshean.c9users.io/listar-um.php",
-    data:"id=1",
+    data:"id="+codigo,
     dataType:"json",
     success: function(data){
       $("#cod").val(data.carros.codigo);
